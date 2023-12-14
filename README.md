@@ -1,4 +1,4 @@
-# Candies
+# Lego Blocks
 Execução do desafio disponível em https://www.hackerrank.com/challenges/lego-blocks/problem?isFullScreen=true
 
 # Imports necessários
