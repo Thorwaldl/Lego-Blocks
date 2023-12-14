@@ -33,7 +33,12 @@ public class Solucao {
             System.out.println(forma);
         }
 
+        List<List<Integer>> result = generatePermutations(altura, totalFormas);
 
+        // Mostrando as permutações geradas
+        for (List<Integer> permutation : result) {
+            System.out.println(permutation);
+        }
     	
     	int retorno=0;
     	
@@ -122,5 +127,22 @@ public class Solucao {
     
     //permutador permutante que permuta a baixo
    
+    public List<List<Integer>> generatePermutations(int n, int maxValue) {
+        List<List<Integer>> permutations = new ArrayList<>();
+        generatePermutationsHelper(n, maxValue, new ArrayList<>(), permutations);
+        return permutations;
+    }
 
+    private void generatePermutationsHelper(int n, int maxValue, List<Integer> current, List<List<Integer>> permutations) {
+        if (n == 0) {
+            permutations.add(new ArrayList<>(current));
+            return;
+        }
+
+        for (int i = 1; i <= maxValue; i++) {
+            current.add(i);
+            generatePermutationsHelper(n - 1, maxValue, current, permutations);
+            current.remove(current.size() - 1);
+        }
+    }
 }
