@@ -10,21 +10,26 @@ public class Solucao {
     
     int[] valores = {1, 2, 3, 4};//tipos de lego existentes, se mudar isso acho que segue funcionando
     List<List<Integer>> formasLinha;
+    List<List<Integer>> combinacoesLinhas;
     int totalFormas=0;
     
     private int altura;
     private int largura;
     int[][] matriz;
+    int retorno=0;
 
     public Solucao(int altura, int largura) {
         this.altura = altura;
         this.largura = largura;
         this.matriz = new int[altura][largura];
+        System.out.println("gerando as linhas validas");
         this.formasLinha = encontrarFormasSoma(valores, largura);
+        System.out.println("gerando as apermutações que serão as combinações das linhas");
+        this.combinacoesLinhas = generatePermutations(altura, totalFormas);
 
     }
     
-    public int soluciona() {
+    public void soluciona() {
     	
 
         // Exibindo as linhas de soma encontradas
@@ -33,27 +38,17 @@ public class Solucao {
             System.out.println(forma);
         }
 
-        List<List<Integer>> result = generatePermutations(altura, totalFormas);
 
         // Mostrando as permutações geradas
-        for (List<Integer> permutation : result) {
-            System.out.println(permutation);
+        for (List<Integer> permutacao : combinacoesLinhas) {
+            System.out.println(permutacao);
         }
     	
-    	int retorno=0;
-    	
-    	
-    	
-    	if(verificaValidade()) {
-    		retorno++;
-    	}
-    	
-    	return retorno;
     }
     
 
     
-    public void montaLinha(int alturaAtual) {
+    public void montaLinha() {
     	int soma=0;
     	
     	if(soma<largura) {
@@ -66,11 +61,12 @@ public class Solucao {
     
     public boolean verificaValidade() {
     	int alt;
-    	boolean retorno=true;
+    	boolean valido=true;
     	for(alt=0;alt<altura-1;alt++) {
     		
     		
     	}
+    	this.retorno ++;
     	return false;
     }
     
