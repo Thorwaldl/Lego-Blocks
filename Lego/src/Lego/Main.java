@@ -21,13 +21,7 @@ public class Main {
             long startTime = System.nanoTime();
             
             Solucao s = new Solucao(n, m);
-            List<List<Integer>> formasSoma = s.encontrarFormasSoma(valores, m);
-
-            // Exibindo as formas de soma encontradas
-            System.out.println("Formas de soma para " + m + ":");
-            for (List<Integer> forma : formasSoma) {
-                System.out.println(forma);
-            }
+            s.soluciona();
             //ParedeDeLego parede = new ParedeDeLego(n, m);
             //int result = parede.calculaManeirasDeConstruir();
             

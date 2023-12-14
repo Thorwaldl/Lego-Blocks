@@ -9,7 +9,8 @@ public class Solucao {
     private static final int MOD = 1000000007;//número mágico
     
     int[] valores = {1, 2, 3, 4};//tipos de lego existentes, se mudar isso acho que segue funcionando
-
+    List<List<Integer>> formasLinha;
+    int totalFormas=0;
     
     private int altura;
     private int largura;
@@ -19,9 +20,20 @@ public class Solucao {
         this.altura = altura;
         this.largura = largura;
         this.matriz = new int[altura][largura];
+        this.formasLinha = encontrarFormasSoma(valores, largura);
+
     }
     
     public int soluciona() {
+    	
+
+        // Exibindo as linhas de soma encontradas
+        System.out.println("Formas de soma para " + largura + ":");
+        for (List<Integer> forma : formasLinha) {
+            System.out.println(forma);
+        }
+
+
     	
     	int retorno=0;
     	
@@ -34,11 +46,7 @@ public class Solucao {
     	return retorno;
     }
     
-    public void addBlock(int block, int place) {
-    	
-    	
-    	
-    }
+
     
     public void montaLinha(int alturaAtual) {
     	int soma=0;
@@ -74,7 +82,7 @@ public class Solucao {
 //permutador de linhas a baixo
     
     // Método para encontrar as formas de soma possíveis
-    public static List<List<Integer>> encontrarFormasSoma(int[] valores, int alvo) {
+    public  List<List<Integer>> encontrarFormasSoma(int[] valores, int alvo) {
         List<List<Integer>> formasSoma = new ArrayList<>();
         encontrarFormasSomaRecursivo(valores, alvo, new ArrayList<>(), formasSoma);
         return formasSoma;
@@ -82,11 +90,12 @@ public class Solucao {
     
     // Método recursivo para encontrar as formas de soma possíveis
 
-    public static void encontrarFormasSomaRecursivo(int[] valores, int alvo, List<Integer> formaAtual, List<List<Integer>> formasSoma) {
+    public void encontrarFormasSomaRecursivo(int[] valores, int alvo, List<Integer> formaAtual, List<List<Integer>> formasSoma) {
         int somaAtual = somaLista(formaAtual);
 
         if (somaAtual == alvo) {
-            formasSoma.add(new ArrayList<>(formaAtual)); // Encontrou uma forma de soma, adiciona à lista
+            formasSoma.add(new ArrayList<>(formaAtual)); // Encontrou uma forma de soma, adiciona à lista e aumenta o contador
+            this.totalFormas++;
             return;
         }
 
@@ -111,4 +120,7 @@ public class Solucao {
     }
    
     
+    //permutador permutante que permuta a baixo
+   
+
 }
