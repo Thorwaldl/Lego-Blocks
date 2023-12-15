@@ -34,13 +34,4 @@ git clone https://github.com/Thorwaldl/Lego-Blocks.git
 
 Executar o código:
 
-cd Lego
-<br></br>
-cd Lego
-<br></br>
-cd src
-<br></br>
-javac Main.java
-<br></br>
-java Main
-<br></br>
+Importar ele na IDE eclipse e clicar no botão verde perto do canto superior esquerdo
